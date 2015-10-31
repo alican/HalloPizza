@@ -1,0 +1,34 @@
+
+
+#pizzamenu{
+
+    list-style: none;
+    padding: 0;
+
+}
+
+.pizza-menu-eintrag{
+    padding: 5px;
+    clear: both;
+    margin: 20px;
+    overflow: hidden;
+    background-color: floralwhite;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+
+}
+
+.pizza-menu-eintrag img{
+    float: left;
+    border-radius: 5px;
+
+}
+
+.pizza-menu-eintrag h2{
+    display: inline-block;
+    margin:0;
+    clear: both;
+}
+
+.pizza-menu-eintrag p{
+    display: inline-block;
+}

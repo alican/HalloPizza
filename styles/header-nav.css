@@ -1,0 +1,10 @@
+
+
+#header-nav{
+    padding: 0;
+}
+
+#header-nav a{
+    display: inline-block;
+    margin: 0 10px;
+}
