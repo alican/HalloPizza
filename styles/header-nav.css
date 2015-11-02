@@ -2,9 +2,16 @@
 
 #header-nav{
     padding: 0;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    text-shadow: #000 2px 2px 1px;
+    float: right;
 }
 
 #header-nav a{
     display: inline-block;
     margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
 }
