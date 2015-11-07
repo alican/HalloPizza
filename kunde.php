@@ -4,13 +4,13 @@
     <?php include "includes/header.php" ?>
 
     <div id="content">
-        <div id="left">
-            <h1>Kunde</h1>
+
+
             <table>
-                <caption> <h1> Kunden&uuml;bersicht </h1> </caption>
+                <caption> <h1 class="table-overview"> Kunden&uuml;bersicht </h1> </caption>
 
                 <tr>
-                    <th> <!-- leere Spalte --> </th>
+                    <th> Ihre Bestellung </th>
                     <th> bestellt </th>
                     <th> im Ofen </th>
                     <th> fertig </th>
@@ -57,20 +57,6 @@
                 </tr>
             </table>
 
-
-        </div>
-        <div id="right">
-
-            <section id="warenkorb">
-                <h1>Warenkorb</h1>
-                <ul>
-                    <li>Eintrag 1</li>
-                    <li>Eintrag 2</li>
-                    <li>Eintrag 3</li>
-                </ul>
-            </section>
-
-        </div>
 
     </div>
     <?php include "includes/footer.php" ?>

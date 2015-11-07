@@ -5,10 +5,9 @@
 
     <div id="content">
         <div id="left">
-            <h1>B&auml;cker</h1>
-            <h2></h2>
+
             <table>
-                <caption>Bestell-Status</caption>
+                <caption><h1 class="table-overview"> B&auml;cker&uuml;bersicht </h1> </caption>
 
                 <tr>
                     <th> <!-- leere Spalte --> </th>
@@ -54,14 +53,42 @@
         </div>
         <div id="right">
 
-            <section id="warenkorb">
-                <h1>Bestellungen</h1>
-                <ul>
-                    <li>Bestellung 1</li>
-                    <li>Bestellung 2</li>
-                    <li>Bestellung 3</li>
-                </ul>
+            <section id="auftrag">
+                <h1 id="header_right">Aufträge</h1>
+
+                    <section class="pizza-auftrag">
+                        <div class="pizza-warenkorb-eintrag-pic">
+                            <img width="36" src="images/pizza1.jpg">
+                        </div>
+                    <div class="pizza-auftrag-info">
+                        <h3>Bestellung 1</h3>
+
+                    </div>
+
+
             </section>
+                <section class="pizza-auftrag">
+                    <div class="pizza-warenkorb-eintrag-pic">
+                        <img width="36" src="images/pizza1.jpg">
+                    </div>
+                    <div class="pizza-auftrag-info">
+                        <h3>Bestellung 2</h3>
+
+                    </div>
+
+
+                </section>
+                <section class="pizza-auftrag">
+                    <div class="pizza-warenkorb-eintrag-pic">
+                        <img width="36" src="images/pizza1.jpg">
+                    </div>
+                    <div class="pizza-auftrag-info">
+                        <h3>Bestellung 3</h3>
+
+                    </div>
+
+
+                </section>
 
         </div>
 

@@ -35,10 +35,12 @@ header{
 #content{
     display: flex;
     height: 100%;
+
 }
 
 #left{
     width: 70%;
+    padding: 16px;
 }
 
 #right{
