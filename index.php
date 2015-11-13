@@ -12,9 +12,10 @@
                         <img width="150" src="images/pizza1.jpg">
                     </div>
                     <div class="pizza-menu-eintrag-info">
+
                         <h2>Pizza 1</h2>
-                        <p>Zutaten: Käse, Tomaten ...</p>
                         <p class="price"> 7 &euro;</p>
+                        <p class="zutaten">Zutaten: Käse, Tomaten ...</p>
                     </div>
                      </section>
 
@@ -24,8 +25,9 @@
                     </div>
                         <div class="pizza-menu-eintrag-info">
                             <h2>Pizza 2</h2>
-                        <p>Zutaten: Käse, Tomaten ...</p>
                             <p class="price"> 7 &euro;</p>
+                        <p class="zutaten">Zutaten: Käse, Tomaten ...</p>
+
                     </div>
                 </section>
                 <section class="pizza-menu-eintrag">
@@ -34,8 +36,8 @@
                     </div>
                     <div class="pizza-menu-eintrag-info">
                         <h2>Pizza 3</h2>
-                        <p>Zutaten: Käse, Tomaten ...</p>
                         <p class="price"> 7 &euro;</p>
+                        <p class="zutaten">Zutaten: Käse, Tomaten ...</p>
                     </div>
                 </section>
             </div>
@@ -83,7 +85,7 @@
                 <fieldset class="field">
                     <legend>Endbetrag </legend>
 
-                    <p class="price">  9,50 &euro;</p>
+                    <p class="price">  9,50&nbsp;&euro;</p>
                 </fieldset>
 
                 <fieldset class="field">
