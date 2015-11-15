@@ -1,0 +1,38 @@
+.pizza-auftrag{
+    display: flex;
+    padding: 5px;
+    clear: both;
+    margin: 16px 0;
+    overflow: hidden;
+    background-color: floralwhite;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+}
+
+.pizza-auftrag:hover{
+    cursor: pointer;
+
+}
+
+.pizza-auftrag img{
+    float: left;
+    width: 36px;
+    border-radius: 5px;
+}
+.pizza-auftrag-info{
+    margin: 0 15px;
+}
+
+.pizza-auftrag h3{
+    display: block;
+    margin:0;
+}
+
+.pizza-auftrag p{
+    display: inline-block;
+    margin: 0;
+}
+
+.pizza-auftrag input{
+    width: 30px;
+}
+

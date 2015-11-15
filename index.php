@@ -1,80 +1,85 @@
 <?php include "includes/head.php" ?>
 <body>
-<section id="container">
+<div id="container">
 <?php include "includes/header.php" ?>
+<?php
+    require_once('vendor/twig/twig/lib/Twig/Autoloader.php');
+    Twig_Autoloader::register();
+    $loader = new Twig_Loader_Filesystem('views');
+    $twig = new Twig_Environment($loader, array(
+       // 'cache' => 'cache',
+    ));
 
+    include "includes/db/db_connect.php";
+
+?>
     <div id="content">
         <div id="left">
 
             <div id="pizzamenu">
-                <section class="pizza-menu-eintrag">
-                    <div class="pizza-menu-eintrag-pic">
-                        <img width="150" src="images/pizza1.jpg">
-                    </div>
-                    <div class="pizza-menu-eintrag-info">
-                        <h2>Pizza 1</h2>
-                        <p>Zutaten: Käse, Tomaten ...</p>
-                    </div>
-                     </section>
-                <section class="pizza-menu-eintrag">
-                    <div class="pizza-menu-eintrag-pic">
-                        <img width="150" src="images/pizza1.jpg">
-                    </div>
-                        <div class="pizza-menu-eintrag-info">
-                            <h2>Pizza 2</h2>
-                        <p>Zutaten: Käse, Tomaten ...</p>
-                    </div>
-                </section>
-                <section class="pizza-menu-eintrag">
-                    <div class="pizza-menu-eintrag-pic">
-                        <img width="150" src="images/pizza1.jpg">
-                    </div>
-                    <div class="pizza-menu-eintrag-info">
-                        <h2>Pizza 3</h2>
-                        <p>Zutaten: Käse, Tomaten ...</p>
-                    </div>
-                </section>
+
+                <?php
+                if(!$result = $db->query($sql_select_items)){
+                    die('There was an error running the query [' . $db->error . ']');
+                }
+
+                while($row = $result->fetch_assoc()){
+
+                    $results[] = $row;
+                }
+                echo $twig->render('pizza-menu-item.html', array('queryResult'=> $results));
+
+                ?>
+
             </div>
 
         </div>
         <div id="right">
+            <h1 id="header_right">Warenkorb</h1>
+            <div id="warenkorb">
+                <form action="order.php" method="post">
 
-            <section id="warenkorb">
-                <h1>Warenkorb</h1>
-                <ul>
-                    <li>Eintrag 1</li>
-                    <li>Eintrag 2</li>
-                    <li>Eintrag 3</li>
-                </ul>
+                <div id="basket-entries">
+                    <p>Warenkorb ist leer.<br> Klicken Sie auf eine Pizza um sie in den Warenkorb zu legen.</p>
+                </div>
 
                 <!-- Button zum loeschen-->
-                <input type="reset" name="deleteall" value="Alle l&ouml;schen"/>
-                <input type="reset" name="deleteselected" value="Auswahl l&ouml;schen"/>
-                <fieldset>
+                <input class="button" type="reset" name="deleteall" value="Alle l&ouml;schen"/>
+                <input class="button" type="reset" name="deleteselected" value="Auswahl l&ouml;schen"/>
+                <fieldset class="field">
                     <legend>Endbetrag </legend>
-                    9,50 &euro;
+                    <p id="totalprice"><span>9,50</span>&nbsp;&euro;</p>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Ihre Adressdaten </legend>
-                    <label> <input type="text" id="nachname" name="Zuname" placeholder="Nachname" readonly/> </label>
-                    <label>  <input type="text" id="Vorname" name="Vorname" placeholder="Vorname" readonly />  </label>
-                    <label>   <input type="text" id="Strasse" name="Strasse" placeholder="Strasse und Hausnummer" readonly /> </label>
-                    <label>   <input pattern="[0-9]{5}" type="text" id="plz" name="plz" title="F&uuml;nfstellige PLZ in Deutschland." placeholder="PLZ" readonly /> </label>
-                    <label>   <input type="text" id="Ort" name="Ort" placeholder="Wohnort" readonly /> </label>
-                    <label>   <input pattern="[0-9]{12}" id="Telefon" name="tel" placeholder="Mobiltelefon"  title="Zu kurze Handynummer" readonly /> </label>
-
+                <fieldset class="field">
+                    <legend >Ihre Adressdaten </legend>
+                    <label class="address">
+                        <input type="text" id="address" name="address" placeholder="Anschrift" />
+                    </label>
                 </fieldset>
                 <!-- Bestellung abschicken-->
-                <input type="submit" name="bestellen" value="Bestellung abschicken"/>
+                <input class="button" type="submit" name="bestellen" value="Bestellung abschicken"/>
+                </form>
 
-
-            </section>
+            </div>
 
         </div>
 
     </div>
     <?php include "includes/footer.php" ?>
-</section>
+</div>
 
+<section id="basketrow_template" class="pizza-warenkorb-eintrag">
+    <div class="pizza-warenkorb-eintrag-pic">
+        <img width="36" src="images/pizza1.jpg">
+    </div>
+    <div class="pizza-warenkorb-eintrag-info">
+        <h3>Pizza 1</h3>
+        <p>Anzahl: <input name="quantity" type="number" min="0" max="99"></p>
+        <p class="pizza-warenkorb-eintrag-preis">
+            <span>20</span>&nbsp;€
+        </p>
+    </div>
+</section>
+<script type="text/javascript" src="js/main.js"></script>
 </body>

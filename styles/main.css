@@ -1,7 +1,7 @@
 
 body{
     font-family: sans-serif;
-    padding: 0;
+    padding: 16px;
     margin: 0;
     background: url("../images/mochaGrunge.png");
     font-size: 0.8em;
@@ -35,10 +35,12 @@ header{
 #content{
     display: flex;
     height: 100%;
+
 }
 
 #left{
     width: 70%;
+    padding: 16px;
 }
 
 #right{

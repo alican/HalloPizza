@@ -1,0 +1,59 @@
+.pizza-warenkorb-eintrag{
+    display: flex;
+    padding: 5px;
+    clear: both;
+    margin: 16px 0;
+    overflow: hidden;
+    background-color: floralwhite;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+}
+
+.pizza-warenkorb-eintrag:hover{
+    cursor: pointer;
+
+}
+.pizza-warenkorb-eintrag-preis{
+    padding: 0;
+    text-align: right;
+    float: right;
+}
+.pizza-warenkorb-eintrag img{
+    float: left;
+    width: 36px;
+    border-radius: 5px;
+}
+.pizza-warenkorb-eintrag-info{
+    margin: 0 15px;
+    width: 100%;
+}
+
+.pizza-warenkorb-eintrag h3{
+    display: block;
+    margin:0;
+}
+
+.pizza-warenkorb-eintrag p{
+    display: inline-block;
+    margin: 0;
+}
+
+.pizza-warenkorb-eintrag input{
+    width: 30px;
+}
+
+.adress{
+    padding: 5px 50px;
+    margin: 20px 0;
+ 
+}
+
+.button{
+    padding: 10px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+#basketrow_template{
+    visibility: hidden;
+    display: none;
+}

@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="styles/pizzamenu.css">
 <link rel="stylesheet" href="styles/warenkorb.css">
 <link rel="stylesheet" href="styles/header-nav.css">
+<link rel="stylesheet" href="styles/tables.css">
+<link rel="stylesheet" href="styles/auftraege.css">
 
 <head>
     <meta charset="UTF-8">

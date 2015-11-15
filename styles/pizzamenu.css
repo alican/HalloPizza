@@ -28,14 +28,37 @@
     border-radius: 5px;
 }
 .pizza-menu-eintrag-info{
-    margin: 0 15px;
+    margin-left: 15px;
+    width: 100%;
 }
 
 .pizza-menu-eintrag h2{
     display: block;
+    width: 80%;
+    float:left;
     margin:0;
 }
 
 .pizza-menu-eintrag p{
     display: inline-block;
+}
+
+#header_right{
+    font-size: medium;
+    font-weight: bold;
+    text-align:center;
+}
+
+.price, #totalprice{
+    font-size: larger;
+    font-weight: bold;
+    width: 20%;
+    margin: 0;
+    text-align: right;
+}
+
+
+
+.zutaten{
+    width: 100%;
 }
