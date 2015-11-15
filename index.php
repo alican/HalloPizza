@@ -29,6 +29,7 @@
                 }
                 echo $twig->render('pizza-menu-item.html', array('queryResult'=> $results));
 
+                mysqli_close($db)
                 ?>
 
             </div>
@@ -37,7 +38,7 @@
         <div id="right">
             <h1 id="header_right">Warenkorb</h1>
             <div id="warenkorb">
-                <form action="order.php" method="post">
+                <form action="kunde.php" method="post">
 
                 <div id="basket-entries">
                     <p>Warenkorb ist leer.<br> Klicken Sie auf eine Pizza um sie in den Warenkorb zu legen.</p>
