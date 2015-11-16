@@ -72,7 +72,9 @@ var basket = new function Basket(){
                 basket.drawBasket();
 
             });
+
             itemNode.querySelector(".pizza-warenkorb-eintrag-preis span").innerHTML = item.getPrice();
+
             warenkorb.appendChild(itemNode);
 
             // Gesamtpreis wird aktualisiert

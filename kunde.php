@@ -38,7 +38,7 @@ if($_POST) {
     $sql_insert_order = rtrim($sql_insert_order, ',');
     $sql_insert_order .= ";";
 
-    echo $sql_insert_order;
+    //echo $sql_insert_order;
     $db->multi_query($sql_insert_order);
 
     $orderID = $db->insert_id;
@@ -50,8 +50,17 @@ if($_POST) {
         $orderID = $_COOKIE["orderID"];
 
         $fetch_order = sprintf("
-            SELECT * FROM order_items
-            WHERE `order`=%s",
+            SELECT i.name,
+                   i.picture,
+                   i.price,
+                   i.ingredients,
+                   i.itemid,
+                   oi.quantity,
+                   oi.orderitemid,
+                   oi.state
+            FROM order_items oi
+            JOIN items i ON oi.item = i.itemid
+            WHERE oi.order = %s;",
             $orderID
         );
 
@@ -63,17 +72,10 @@ if($_POST) {
             $results[] = $row;
         }
 
-
-
         mysqli_close($db);
-
-
 
     }
 }
-
-
-
 
 ?>
 
@@ -82,20 +84,12 @@ if($_POST) {
 <section id="container">
     <?php include "includes/header.php" ?>
 
-
-
     <div id="content">
         <div id="left">
-            <?php
-            echo $twig->render('costumer-order-view.html', array('queryResult'=> $results));
-            ?>
-
+            <?php echo $twig->render('costumer-order-view.html', array('queryResult'=> $results)); ?>
         </div>
         <div id="right">
-
         </div>
-
-
 
     </div>
     <?php include "includes/footer.php" ?>
