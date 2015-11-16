@@ -1,7 +1,14 @@
 
 {% for item in queryResult %}
-    <p>
-        <a href="?order={{item.orderid}}">{{item.orderid}} <br> Bestellt am: {{item.ordered}}</a>
-    </p>
+
+<a href="?order={{item.orderid}}">
+<section class="pizza-auftrag">
+    <div class="pizza-auftrag-info">
+        <h3>Bestellnummer: {{item.orderid}} </h3>
+            <p>  Bestellt am: {{item.ordered}} </p>
+    </div>
+
+</section>
+</a>
 {% endfor %}
 

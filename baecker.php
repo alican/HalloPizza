@@ -80,40 +80,6 @@
                 echo $twig->render('order-list.html', array('queryResult'=> $results));
                 ?>
 
-                <section class="pizza-auftrag">
-                        <div class="pizza-warenkorb-eintrag-pic">
-                            <img width="36" src="images/pizza1.jpg">
-                        </div>
-                    <div class="pizza-auftrag-info">
-                        <h3>Bestellung 1</h3>
-
-                    </div>
-
-
-            </section>
-                <section class="pizza-auftrag">
-                    <div class="pizza-warenkorb-eintrag-pic">
-                        <img width="36" src="images/pizza1.jpg">
-                    </div>
-                    <div class="pizza-auftrag-info">
-                        <h3>Bestellung 2</h3>
-
-                    </div>
-
-
-                </section>
-                <section class="pizza-auftrag">
-                    <div class="pizza-warenkorb-eintrag-pic">
-                        <img width="36" src="images/pizza1.jpg">
-                    </div>
-                    <div class="pizza-auftrag-info">
-                        <h3>Bestellung 3</h3>
-
-                    </div>
-
-
-                </section>
-
         </div>
 
     </div>
