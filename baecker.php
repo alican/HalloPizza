@@ -16,52 +16,50 @@
 
     $sql_fetch_orders = "SELECT * FROM orders ORDER BY -ordered LIMIT 10;";
 
+    $orders = [];
+
+    if (isset($_GET["order"])){
+        $orderID = htmlspecialchars($_GET["order"]);
+
+        $fetch_order = sprintf("
+            SELECT i.name,
+                   i.picture,
+                   i.price,
+                   i.ingredients,
+                   i.itemid,
+                   oi.quantity,
+                   oi.orderitemid,
+                   oi.state
+            FROM order_items oi
+            JOIN items i ON oi.item = i.itemid
+            WHERE oi.order = %s;",
+            $orderID
+        );
+
+        if(!$result = $db->query($fetch_order)){
+            die('There was an error running the query [' . $db->error . ']');
+        }
+
+        while($row = $result->fetch_assoc()){
+            $orders[] = $row;
+        }
+    }
+
+
 
     ?>
 
     <div id="content">
         <div id="left">
+            <form action="baecker.php" method="post">
 
-            <table>
-                <caption><h1 class="table-overview"> B&auml;cker&uuml;bersicht </h1> </caption>
+            <?php
+            echo $twig->render('baecker-order-view.html', array('queryResult'=> $orders));
+            ?>
+                <input type="submit" name="speichern" value="speichern" />
+            </form>
 
-                <tr>
-                    <th> <!-- leere Spalte --> </th>
-                    <th> bestellt </th>
-                    <th> im Ofen </th>
-                    <th> fertig </th>
-                </tr>
 
-                <tr>
-                    <td>  <label> Margherita </label></td>
-                    <td> <input type = "radio" name="01">
-                        <br></td>
-                    <td> <input type = "radio" name="01">
-                        <br></td>
-                    <td> <input type = "radio" name="01">
-                        <br></td>
-                </tr>
-
-                <tr>
-                    <td>  <label> Tonno </label></td>
-                    <td> <input type = "radio" name="02">
-                        <br></td>
-                    <td> <input type = "radio" name="02">
-                        <br></td>
-                    <td> <input type = "radio" name="02">
-                        <br></td>
-                </tr>
-
-                <tr>
-                    <td>  <label> Salami </label></td>
-                    <td> <input type = "radio" name="03">
-                        <br></td>
-                    <td> <input type = "radio" name="03">
-                        <br></td>
-                    <td> <input type = "radio" name="03">
-                        <br></td>
-                </tr>
-            </table>
 
         </div>
         <div id="right">
