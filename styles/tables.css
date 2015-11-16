@@ -2,6 +2,7 @@ tr:nth-child(even) {
     background-color: darkgrey;
 }
 
+
 tr:nth-child(odd) {
     background-color: antiquewhite;
 }
@@ -12,13 +13,10 @@ tr:nth-child(odd) {
     font-size: medium;
     font-weight: bold;
     text-align:center;
-
 }
 
 table{
-
     border: 1px solid black;
-
 }
 
 th,td{
