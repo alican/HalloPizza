@@ -21,11 +21,11 @@
                         <th> ausgeliefert</th>
                     </tr>
                     <tr>
-                        <td> <input type = "radio" name="auswahl">
+                        <td> <input type = "radio" name="01">
                             <br></td>
-                        <td> <input type = "radio" name="auswahl">
+                        <td> <input type = "radio" name="01">
                             <br></td>
-                        <td> <input type = "radio" name="auswahl">
+                        <td> <input type = "radio" name="01">
                             <br></td>
                     </tr>
                 </table>
@@ -45,11 +45,11 @@
                         <th> ausgeliefert</th>
                     </tr>
                     <tr>
-                        <td> <input type = "radio" name="auswahl">
+                        <td> <input type = "radio" name="02">
                             <br></td>
-                        <td> <input type = "radio" name="auswahl">
+                        <td> <input type = "radio" name="02">
                             <br></td>
-                        <td> <input type = "radio" name="auswahl">
+                        <td> <input type = "radio" name="02">
                             <br></td>
                     </tr>
                 </table>

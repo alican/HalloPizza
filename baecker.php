@@ -18,33 +18,33 @@
 
                 <tr>
                     <td>  <label> Margherita </label></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="01">
                         <br></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="01">
                         <br></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="01">
                         <br></td>
 
                 </tr>
 
                 <tr>
                     <td>  <label> Tonno </label></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="02">
                         <br></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="02">
                         <br></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="02">
                         <br></td>
 
                 </tr>
 
                 <tr>
                     <td>  <label> Salami </label></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="03">
                         <br></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="03">
                         <br></td>
-                    <td> <input type = "radio" name="auswahl">
+                    <td> <input type = "radio" name="03">
                         <br></td>
 
                 </tr>
