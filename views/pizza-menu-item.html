@@ -1,0 +1,15 @@
+
+{% for item in queryResult %}
+<section data-id="{{item.itemid}}" data-name="{{item.name}}" data-price="{{item.price}}" class="pizza-menu-eintrag" onclick="addTOCart(this)">
+    <div class="pizza-menu-eintrag-pic">
+        <img width="150" src="images/{{item.picture}}">
+    </div>
+    <div class="pizza-menu-eintrag-info">
+
+        <h2>{{item.name}}</h2>
+        <p class="price">{{item.price}} &euro;</p>
+        <p class="zutaten">{{item.ingredients}}</p>
+    </div>
+</section>
+{% endfor %}
+

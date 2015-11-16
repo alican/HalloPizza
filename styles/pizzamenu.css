@@ -49,10 +49,16 @@
     text-align:center;
 }
 
-.price{
+.price, #totalprice{
     font-size: larger;
     font-weight: bold;
     width: 20%;
     margin: 0;
     text-align: right;
+}
+
+
+
+.zutaten{
+    width: 100%;
 }

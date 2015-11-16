@@ -53,3 +53,7 @@
     font-weight: bold;
 }
 
+#basketrow_template{
+    visibility: hidden;
+    display: none;
+}
