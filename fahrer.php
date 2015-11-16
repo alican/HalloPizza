@@ -68,13 +68,10 @@
                     </div>
                     <div class="pizza-auftrag-info">
                         <h3>Bestellung 1</h3>
-
                     </div>
-
-
                 </section>
 
-                <section class="pizza-auftrag">
+                    <section class="pizza-auftrag">
                     <div class="pizza-warenkorb-eintrag-pic">
                         <img width="36" src="images/pizza1.jpg">
                     </div>

@@ -3,6 +3,22 @@
 <section id="container">
     <?php include "includes/header.php" ?>
 
+    <?php
+
+    require_once('vendor/twig/twig/lib/Twig/Autoloader.php');
+    Twig_Autoloader::register();
+    $loader = new Twig_Loader_Filesystem('views');
+    $twig = new Twig_Environment($loader, array(
+        // 'cache' => 'cache',
+    ));
+
+    include "includes/db/db_connect.php";
+
+    $sql_fetch_orders = "SELECT * FROM orders ORDER BY -ordered LIMIT 10;";
+
+
+    ?>
+
     <div id="content">
         <div id="left">
 
@@ -24,7 +40,6 @@
                         <br></td>
                     <td> <input type = "radio" name="01">
                         <br></td>
-
                 </tr>
 
                 <tr>
@@ -35,7 +50,6 @@
                         <br></td>
                     <td> <input type = "radio" name="02">
                         <br></td>
-
                 </tr>
 
                 <tr>
@@ -46,7 +60,6 @@
                         <br></td>
                     <td> <input type = "radio" name="03">
                         <br></td>
-
                 </tr>
             </table>
 
@@ -55,8 +68,19 @@
 
             <section id="auftrag">
                 <h1 id="header_right">Aufträge</h1>
+                <?php
+                if(!$result = $db->query($sql_fetch_orders)){
+                die('There was an error running the query [' . $db->error . ']');
+                }
 
-                    <section class="pizza-auftrag">
+                while($row = $result->fetch_assoc()){
+
+                $results[] = $row;
+                }
+                echo $twig->render('order-list.html', array('queryResult'=> $results));
+                ?>
+
+                <section class="pizza-auftrag">
                         <div class="pizza-warenkorb-eintrag-pic">
                             <img width="36" src="images/pizza1.jpg">
                         </div>

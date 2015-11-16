@@ -10,9 +10,15 @@ include "includes/db/db_connect.php";
 
 $results = [];
 
+$message = "";
+
+$orderID = -1;
+
 if($_POST) {
 
     $items = array();
+
+    $message = "Neue Bestellung";
 
     foreach ($_POST as $key => $value) {
         if (strstr(htmlspecialchars($key), 'item')) {
@@ -45,11 +51,13 @@ if($_POST) {
 
     setcookie("orderID", $orderID);
 
-}else{
-    if (isset($_COOKIE["orderID"])){
-        $orderID = $_COOKIE["orderID"];
+} else{
+if ($orderID < 0 || isset($_COOKIE["orderID"])){
+        if ($orderID < 0){
+            $orderID = $_COOKIE["orderID"];
+        }
 
-        $fetch_order = sprintf("
+    $fetch_order = sprintf("
             SELECT i.name,
                    i.picture,
                    i.price,
@@ -73,8 +81,7 @@ if($_POST) {
         }
 
         mysqli_close($db);
-
-    }
+}
 }
 
 ?>
@@ -86,7 +93,7 @@ if($_POST) {
 
     <div id="content">
         <div id="left">
-            <?php echo $twig->render('costumer-order-view.html', array('queryResult'=> $results)); ?>
+            <?php echo $twig->render('costumer-order-view.html', array('queryResult'=> $results, '$message' => $message)); ?>
         </div>
         <div id="right">
         </div>
