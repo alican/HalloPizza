@@ -101,5 +101,6 @@ if ($orderID < 0 || isset($_COOKIE["orderID"])){
     </div>
     <?php include "includes/footer.php" ?>
 </section>
+<script type="text/javascript" src="js/customer.js"></script>
 
 </body>

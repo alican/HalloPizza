@@ -35,6 +35,23 @@ var basket = new function Basket(){
         return totalprice;
     };
 
+    this.deleteAll = function(){
+        this.items = [];
+        this.drawBasket();
+    };
+
+    this.deleteItem = function(id){
+
+        for (var i = 0; i < this.items.length; i++){
+            if (this.items[i].id == id){
+                if (i > -1) {
+                    this.items.splice(i, 1);
+                }
+            }
+        }
+        this.drawBasket();
+    };
+
     this.drawBasket = function(){
         var self = this;
         // Im HTML-Dokument befindet sich ein verstecktes section template.
@@ -43,45 +60,59 @@ var basket = new function Basket(){
         // hier wird der Warenkorb gesucht, in den alle Einträge gespeichert werden,
         // und danach der Inhalt geleert.
         var warenkorb = document.querySelector("#basket-entries");
-        warenkorb.innerHTML = "";
-        this.items.forEach(function(item){
-            // In der Basket-Klasse werden alle Items durchsucht und für jeden
-            // Eintrag wird eine Kopie des templates erstellt.
-            var itemNode = document.importNode(template, true);
-            // dann wird von dieser Kopie die ID "#basketrow_template" entfernt,
-            // damit es durch die CSS-Angabe nicht mehr hidden ist.
-            itemNode.removeAttribute("id");
 
-            itemNode.querySelector(".pizza-warenkorb-eintrag-info h3").innerHTML = item.name;
-            var inputQuantity = itemNode.querySelector(".pizza-warenkorb-eintrag-info input");
-            inputQuantity.value = item.quantity;
+        if (this.items.length < 1){
+            warenkorb.innerHTML = "<p>Warenkorb ist leer.<br> Klicken Sie auf eine Pizza um sie in den Warenkorb zu legen.</p>";
+        }else{
+            warenkorb.innerHTML = "";
+            this.items.forEach(function(item){
+                // In der Basket-Klasse werden alle Items durchsucht und für jeden
+                // Eintrag wird eine Kopie des templates erstellt.
+                var itemNode = document.importNode(template, true);
 
-            // Erstellt ein verstecktes input field
-            // Beispiel: <input type="hidden" name="item-1" value="1" />
-            // damit man beim abschicken des Formulars die IDs und Anzahl der Pizzen mitschicken kann.
-            var input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "item-" + item.id;
-            input.value = item.quantity;
-            itemNode.appendChild(input);
+                itemNode.dataset.id = item.id;
 
-            // Beim ändern der Anzahl-Inputs wird der Wert im Item-Object angepasst und
-            // das Warenkorb neu aufgebaut.
-            inputQuantity.addEventListener("change", function(){
-                item.quantity = inputQuantity.value;
-                basket.drawBasket();
+                var deleteButton = itemNode.querySelector(".deleteButton");
+
+                deleteButton.addEventListener("click", function(){
+                    self.deleteItem(item.id);
+                });
+                // dann wird von dieser Kopie die ID "#basketrow_template" entfernt,
+                // damit es durch die CSS-Angabe nicht mehr hidden ist.
+                itemNode.removeAttribute("id");
+
+                itemNode.querySelector(".pizza-warenkorb-eintrag-info h3").innerHTML = item.name;
+                var inputQuantity = itemNode.querySelector(".pizza-warenkorb-eintrag-info input");
+                inputQuantity.value = item.quantity;
+
+                // Erstellt ein verstecktes input field
+                // Beispiel: <input type="hidden" name="item-1" value="1" />
+                // damit man beim abschicken des Formulars die IDs und Anzahl der Pizzen mitschicken kann.
+                var input = document.createElement("input");
+                input.type = "hidden";
+                input.name = "item-" + item.id;
+                input.value = item.quantity;
+                itemNode.appendChild(input);
+
+                // Beim ändern der Anzahl-Inputs wird der Wert im Item-Object angepasst und
+                // das Warenkorb neu aufgebaut.
+                inputQuantity.addEventListener("change", function(){
+                    item.quantity = inputQuantity.value;
+                    basket.drawBasket();
+
+                });
+
+                itemNode.querySelector(".pizza-warenkorb-eintrag-preis span").innerHTML = item.getPrice();
+
+                warenkorb.appendChild(itemNode);
+
+                // Gesamtpreis wird aktualisiert
+                var totalprice = document.querySelector("#totalprice span");
+                totalprice.innerHTML = self.getTotalprice();
 
             });
+        }
 
-            itemNode.querySelector(".pizza-warenkorb-eintrag-preis span").innerHTML = item.getPrice();
-
-            warenkorb.appendChild(itemNode);
-
-            // Gesamtpreis wird aktualisiert
-            var totalprice = document.querySelector("#totalprice span");
-            totalprice.innerHTML = self.getTotalprice();
-
-        });
     };
 };
 
@@ -95,8 +126,8 @@ function addTOCart(elm){
     ));
 
     basket.drawBasket();
+}
 
-
-
-
+function  deleteAll(){
+    basket.deleteAll();
 }
