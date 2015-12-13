@@ -1,0 +1,36 @@
+{% if items %}
+<table>
+    <caption> <h1 class="table-overview"> Bestellung </h1> </caption>
+    <tr>
+        <th> Die Bestellung </th>
+        <th> bestellt </th>
+        <th> im Ofen </th>
+        <th> fertig </th>
+        <th> unterwegs </th>
+        <th> geliefert </th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td><label> {{ item.name }} ({{item.quantity}} stück) </label></td>
+        {% for i in 0..4 %}
+        <td>
+            <input value="{{ i }}" type="radio" {% if 2 > i %} disabled="disabled" {% endif %} {% if item.state == i %}checked="checked"{% endif %} name="item-{{ item.orderitemid }}"><br>
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+<input id="save_submit" type="submit" name="speichern" value="speichern"/>
+
+{% else %}
+
+<p>Keine Einträge</p>
+{% endif %}
+
+
+
+
+

@@ -61,3 +61,15 @@ footer{
 footer a{
     color: black;
 }
+
+.message{
+    padding: 1em;
+    border-radius: 0.5em;
+    font-size: 1.4em;
+}
+.message.info{
+    background-color: rgb(187, 242, 223);
+}
+.message.error{
+    background-color: rgb(242, 113, 102);
+}

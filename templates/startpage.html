@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block left %}
+<h1>{{ page_title }}</h1>
+{% include 'pizza-menu-item.html' %}
+{% endblock %}
+
+{% block right %}
+<h1 id="header_right">Warenkorb</h1>
+<div id="warenkorb">
+    <form action="/?page=Kunde" method="post">
+
+        <div id="basket-entries">
+            <p>Warenkorb ist leer.<br> Klicken Sie auf eine Pizza um sie in den Warenkorb zu legen.</p>
+        </div>
+
+        <!-- Button zum loeschen-->
+        <input class="button" onclick="deleteAll()" type="reset" name="deleteall" value="Alle l&ouml;schen"/>
+        <fieldset class="field">
+            <legend>Endbetrag </legend>
+            <p id="totalprice"><span>0,00</span>&nbsp;&euro;</p>
+        </fieldset>
+
+        <fieldset class="field">
+            <legend >Ihre Adressdaten </legend>
+            <label class="address">
+                <input type="text" id="address" name="address" placeholder="Anschrift" />
+            </label>
+        </fieldset>
+        <!-- Bestellung abschicken-->
+        <input class="button" type="submit" name="bestellen" value="Bestellung abschicken"/>
+    </form>
+
+</div>
+{% endblock %}
+{% block footer %}
+{{parent()}}
+<script type="text/javascript" src="js/main.js"></script>
+<section id="basketrow_template" class="pizza-warenkorb-eintrag">
+    <div class="pizza-warenkorb-eintrag-pic">
+        <img width="48" src="images/pizza1.jpg">
+    </div>
+    <div class="pizza-warenkorb-eintrag-info">
+        <h3>Pizza 1</h3>
+        <p>Anzahl: <input name="quantity" type="number" min="0" max="99"></p>
+        <input type="button" value="X" class="deleteButton"/>
+        <p class="pizza-warenkorb-eintrag-preis">
+            <span>20</span>&nbsp;€
+        </p>
+    </div>
+</section>
+{% endblock %}

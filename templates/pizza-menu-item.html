@@ -1,5 +1,5 @@
 
-{% for item in queryResult %}
+{% for item in items %}
 <section data-id="{{item.itemid}}" data-name="{{item.name}}" data-price="{{item.price}}" class="pizza-menu-eintrag" onclick="addTOCart(this)">
     <div class="pizza-menu-eintrag-pic">
         <img width="150" src="images/{{item.picture}}">

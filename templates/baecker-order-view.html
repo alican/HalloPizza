@@ -3,7 +3,7 @@
     <h2>{{message}}</h2>
 {% endif %}
 
-{% if queryResult %}
+{% if items %}
 <table>
     <caption> <h1 class="table-overview"> Bestellung </h1> </caption>
     <tr>
@@ -12,14 +12,16 @@
         <th> im Ofen </th>
         <th> fertig </th>
         <th> unterwegs </th>
+        <th> geliefert </th>
+
     </tr>
 
-    {% for item in queryResult %}
+    {% for item in items %}
     <tr>
         <td><label> {{ item.name }} ({{item.quantity}} stück) </label></td>
-        {% for i in 0..3 %}
+        {% for i in 0..4 %}
         <td>
-            <input value="{{ i }}" type="radio" {% if i == 3 %} disabled="disabled" {% endif %} {% if item.state == i %}checked="checked"{% endif %} name="item-{{ item.orderitemid }}"><br>
+            <input value="{{ i }}" type="radio" {% if i > 2 %} disabled="disabled" {% endif %} {% if item.state == i %}checked="checked"{% endif %} name="item-{{ item.orderitemid }}"><br>
         </td>
         {% endfor %}
     </tr>

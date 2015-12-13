@@ -1,0 +1,11 @@
+{% for order in orders %}
+<a href="?page=Baecker&order={{order.orderid}}">
+<section class="pizza-auftrag">
+    <div class="pizza-auftrag-info">
+        <h3>Bestellnummer: {{order.orderid}} </h3>
+            <p>  Bestellt am: {{order.ordered}} </p>
+    </div>
+</section>
+</a>
+{% endfor %}
+

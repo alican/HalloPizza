@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block left %}
+<h1>{{ page_title }}</h1>
+<form method="post">
+{% include 'costumer-order-view.html' %}
+</form>
+
+{% endblock %}
+
+{% block right %}
+
+{% endblock %}
+{% block footer %}
+{{parent()}}
+<script type="text/javascript" src="js/main.js"></script>
+
+{% endblock %}

@@ -60,6 +60,7 @@ var basket = new function Basket(){
         // hier wird der Warenkorb gesucht, in den alle Einträge gespeichert werden,
         // und danach der Inhalt geleert.
         var warenkorb = document.querySelector("#basket-entries");
+        var totalprice = document.querySelector("#totalprice span");
 
         if (this.items.length < 1){
             warenkorb.innerHTML = "<p>Warenkorb ist leer.<br> Klicken Sie auf eine Pizza um sie in den Warenkorb zu legen.</p>";
@@ -101,17 +102,12 @@ var basket = new function Basket(){
                     basket.drawBasket();
 
                 });
-
                 itemNode.querySelector(".pizza-warenkorb-eintrag-preis span").innerHTML = item.getPrice();
 
                 warenkorb.appendChild(itemNode);
-
-                // Gesamtpreis wird aktualisiert
-                var totalprice = document.querySelector("#totalprice span");
-                totalprice.innerHTML = self.getTotalprice();
-
             });
         }
+        totalprice.innerHTML = self.getTotalprice();
 
     };
 };

@@ -28,7 +28,7 @@ final class Controller {						// Singleton
                 throw new Exception("Ungültiger Wert für Parameter 'page'");
         }
         else
-            $page = "Select";		// default page
+            $page = "Startpage";		// default page
         return $page;
     }
 

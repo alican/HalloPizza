@@ -31,43 +31,6 @@ abstract class Form extends Block
             return htmlspecialchars($saveReceivedData[$name]);
     }
 
-    // outputs the form content in HTML format (has to be implemented):
-    abstract protected function view_generateFormContent();
-
-    final public function view_generateBlock() {
-        $charsetHTML = Page::charsetHTML;
-        $className = get_class($this);
-        $scriptName = $_SERVER["SCRIPT_NAME"];
-
-        if ($this->refreshEnabled) {	// send using "get"
-            echo <<<EOT
-	<form id="block_$className" action="$scriptName" method="get" accept-charset="$charsetHTML">
-	<div>
-		<input type="hidden" name="page" value="$this->nextPage"/>
-
-EOT;
-        }
-        else {							// send using "post"
-            $TAN = mt_rand();			// create a new random TAN
-            ModelCore::getInstance()->setTAN($TAN);
-            echo <<<EOT
-	<form id="block_$className" action="$scriptName" method="post" accept-charset="$charsetHTML">
-	<div>
-		<input type="hidden" name="page" value="$this->nextPage"/>
-		<input type="hidden" name="TAN" value="$TAN"/>
-
-EOT;
-        }
-        $this->view_generateFormContent();
-        $formPage = get_class($this->page);
-        echo <<<EOT
-		<input type="hidden" name="formPage" value="$formPage"/>
-	</div>
-	</form>
-
-EOT;
-    }
-
     // evaluates the received data (has to be implemented; should access $_REQUEST):
     abstract protected function controller_processReceivedForm();
 

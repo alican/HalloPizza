@@ -1,5 +1,5 @@
 
-{% if queryResult %}
+{% if items %}
 
 <table>
     <caption> <h1 class="table-overview"> Kunden&uuml;bersicht </h1> </caption>
@@ -9,12 +9,14 @@
         <th> im Ofen </th>
         <th> fertig </th>
         <th> unterwegs </th>
+        <th> geliefert </th>
+
     </tr>
 
-    {% for item in queryResult %}
+    {% for item in items %}
     <tr data-id="{{ item.id }}">
         <td><label> {{ item.name }} ({{item.quantity}} stück) </label></td>
-        {% for i in 0..3 %}
+        {% for i in 0..4 %}
             <td>
                 <input type="radio" disabled="disabled" {% if item.state == i %}checked="checked"{% endif %} name="{{ item.orderitemid }}"><br>
             </td>

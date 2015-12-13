@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/pizzamenu.css">
+    <link rel="stylesheet" href="styles/warenkorb.css">
+    <link rel="stylesheet" href="styles/header-nav.css">
+    <link rel="stylesheet" href="styles/tables.css">
+    <link rel="stylesheet" href="styles/auftraege.css">
+
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - HalloPizza</title>
+</head>
+<body>
+<div id="container">
+<header>
+
+    <a href="#" id="logo" title="Zur Startseite">Hallo Pizza</a>
+
+    <menu id="header-nav">
+        <a href="/">Startseite</a>
+        <a href="/index.php?page=Kunde">Kunde</a>
+        <a href="/index.php?page=Baecker">B&auml;cker</a>
+        <a href="/index.php?page=Fahrer">Fahrer</a>
+    </menu>
+</header>
+    <div id="content">
+        {% block content %}
+        <div id="left">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="message {{ message.type }}">{{ message.text }}</div>
+            {% endfor %}
+            {% endif %}
+
+            {% block left %}{% endblock %}
+        </div>
+        <div id="right">
+            {% block right %}{% endblock %}
+        </div>
+        {% endblock %}
+    </div>
+    {% block footer %}
+    <footer><a href="/impressum.php">Impressum</a></footer>
+    {% endblock %}
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+
+

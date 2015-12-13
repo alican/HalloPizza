@@ -41,10 +41,10 @@
     width: 30px;
 }
 
-.adress{
-    padding: 5px 50px;
-    margin: 20px 0;
- 
+#address{
+    padding: 5px;
+    width: 100%;
+    box-sizing: padding-box;
 }
 
 .button{

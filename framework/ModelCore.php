@@ -42,7 +42,7 @@ final class ModelCore extends MySQLi {		// Singleton
 
         // connect to database
         try {
-            parent::__construct($config['host'], $config['user'], $config['pwd'], "reisebuero");
+            parent::__construct($config['host'], $config['user'], $config['pwd'], "ewa");
             // check connection
             if (mysqli_connect_error())		// $this is invalid in case of error
                 throw new Exception("Keine Verbindung zur Datenbank: ".mysqli_connect_error());
