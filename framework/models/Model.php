@@ -131,6 +131,7 @@ ORDER BY ordered LIMIT 99;";
                    i.price,
                    i.ingredients,
                    i.itemid,
+                   oi.updated,
                    oi.quantity,
                    oi.orderitemid,
                    oi.state

@@ -2,9 +2,9 @@
 
 $config['session'] = "MVCframework";
 
-$config['host']    = "";
-$config['user']    = "";
-$config['pwd']     = "";
+$config['host']    = "io64.de";
+$config['user']    = "ewauser";
+$config['pwd']     = "ewapassword_2015";
 
 
 

@@ -1,6 +1,9 @@
 
 {% if items %}
-
+<script>
+    var items = {{ items|json_encode()|raw }};
+    var orderId = {{orderid}};
+</script>
 <table>
     <caption> <h1 class="table-overview"> Kunden&uuml;bersicht </h1> </caption>
     <tr>

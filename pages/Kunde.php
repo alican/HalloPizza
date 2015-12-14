@@ -25,6 +25,7 @@ class Kunde extends Page
         $orderId = $this->model->getOrderId();
 
         if ($orderId != 0){
+            $this->model->setTransientData("orderId", $orderId);
             $items = $this->model->getItemsByOrderId($orderId);
             return $items;
         }
@@ -39,6 +40,7 @@ class Kunde extends Page
         echo $this->model->twig->render('Kunde.html', array(
                 'messages' => $this->model->getMessages(),
                 'items'=> $this->getContentData(),
+                'orderid' =>$this->model->getTransientData("orderId", 0),
                 'page_title'=> $this->view_getPageTitle())
         );
     }

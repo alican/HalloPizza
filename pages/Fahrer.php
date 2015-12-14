@@ -29,6 +29,7 @@ class Fahrer extends Page
         echo $this->model->twig->render('Fahrer.html', array(
                 'messages' => $this->model->getMessages(),
                 'items'=> $this->getContentData(),
+                'orderid' =>$this->model->getTransientData("order", 0),
                 'orders'=> $this->model->getOrders(true),
                 'page_title'=> $this->view_getPageTitle())
         );
